@@ -48,7 +48,7 @@ body {
     text-align: center;
 }
 
-.messages {
+#messagesList {
     flex: 2;
 }
 
@@ -70,12 +70,12 @@ body {
     color: grey;
 }
 
-.messageEntry {
+#messageForm {
     display: flex;
     justify-content: space-between;
 }
 
-.messageEntry>* {
+#messageForm>* {
     margin: 10px;
 }
 
@@ -84,6 +84,6 @@ body {
     font-size: 0.9em;
 }
 
-.messageEntry button {
+#messageForm button {
     border-radius: 5px;
 }

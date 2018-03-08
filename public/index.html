@@ -27,7 +27,7 @@
 
     <div class="chat">
         <h1>My Chat</h1>
-        <div class="messages">
+        <div id="messagesList">
             <div class="messageContainer">
                 <div class="authName">Juju</div>
                 <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
@@ -41,38 +41,12 @@
                 <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
             </div>
         </div>
-        <form class="messageEntry">
+        <form id="messageForm">
             <input type="text" id="messageInput" placeholder="Message...">
             <button type="submit" id="submit">Send</button>
         </form>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-            // // The Firebase SDK is initialized and available here!
-            //
-            // firebase.auth().onAuthStateChanged(user => { });
-            // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-            // firebase.messaging().requestPermission().then(() => { });
-            // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-            //
-            // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-            try {
-                let app = firebase.app();
-                // console.log('test', app); // to test
-                let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[
-                    feature] === 'function');
-                //document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-            } catch (e) {
-                console.error(e);
-                //document.getElementById('load').innerHTML =
-                'Error loading the Firebase SDK, check the console.';
-            }
-        });
-    </script>
-
+    
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
     <script>
         // Initialize Firebase
