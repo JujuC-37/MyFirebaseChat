@@ -16,81 +16,14 @@
     <script defer src="/__/firebase/4.10.1/firebase-storage.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
-
-    <style media="screen">
-        body {
-            background: violet;
-            color: rgba(0, 0, 0, 0.87);
-            font-family: Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .chat {
-            background-color: rgb(127, 255, 212);
-            width: 500px;
-            height: 550px;
-            margin: 30px auto 0 auto;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-        }
-
-        .chat h1 {
-            text-align: center;
-        }
-
-        .messages {
-            flex: 2;
-        }
-
-        .messageContainer {
-            margin: 10px;
-        }
-        
-        .messageContainer .text {
-            padding: 8px;
-            border: 1px solid grey;
-            border-radius: 5px;
-            font-size: 0.9em;
-            background-color: rgba(39, 170, 127, 0.3);
-        }
-
-        .messageContainer .authName {
-            font-size: 0.7em;
-            font-style: italic;
-            color: grey;
-        }
-        
-        .messageEntry {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .messageEntry>* {
-            margin: 10px;
-        }
-
-        #messageInput {
-            flex: 2;
-            font-size: 0.9em;
-        }
-
-        .messageEntry button {
-            border-radius: 5px;
-        }
-    </style>
 </head>
 
 <body>
-    <!-- <div id="message">
-        <h2>Welcome</h2>
-        <h1>Firebase Hosting Setup Complete</h1>
-        <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-        <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    <div class="user">
+        <div id="nameUser"></div>
+        <button id="SignIn">Sign In</button>
+        <button id="SignOut" class="hidden">Sign Out</button>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p> -->
 
     <div class="chat">
         <h1>My Chat</h1>
@@ -153,6 +86,8 @@
         };
         firebase.initializeApp(config);
     </script>
+
+    <script src="main.js"></script>
 </body>
 
 </html>

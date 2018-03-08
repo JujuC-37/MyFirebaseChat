@@ -1,0 +1,89 @@
+body {
+    background: violet;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    width: 500px;
+    margin: auto;
+    padding: 0;
+}
+
+.hidden{
+    display: none;
+}
+
+.user {
+    background-color: lightsteelblue;
+    /* height: 60px; */
+    margin: 10px 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#nameUser > * {
+    vertical-align: middle;
+}
+
+#nameUser img {
+    max-height: 40px;
+    border-radius: 20px;
+}
+
+#SignIn, #SignOut {
+    width: 80px;
+    margin: auto 5px;
+}
+
+.chat {
+    background-color: rgb(127, 255, 212);
+    height: 550px;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.chat h1 {
+    text-align: center;
+}
+
+.messages {
+    flex: 2;
+}
+
+.messageContainer {
+    margin: 10px;
+}
+
+.messageContainer .text {
+    padding: 8px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-size: 0.9em;
+    background-color: rgba(39, 170, 127, 0.3);
+}
+
+.messageContainer .authName {
+    font-size: 0.7em;
+    font-style: italic;
+    color: grey;
+}
+
+.messageEntry {
+    display: flex;
+    justify-content: space-between;
+}
+
+.messageEntry>* {
+    margin: 10px;
+}
+
+#messageInput {
+    flex: 2;
+    font-size: 0.9em;
+}
+
+.messageEntry button {
+    border-radius: 5px;
+}
