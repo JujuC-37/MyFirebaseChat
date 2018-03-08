@@ -13,7 +13,7 @@ body {
 
 .user {
     background-color: lightsteelblue;
-    /* height: 60px; */
+    height: 40px;
     margin: 10px 0;
     padding: 10px;
     display: flex;

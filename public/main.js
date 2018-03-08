@@ -5,9 +5,11 @@ class MyChat {
         
         this.signInButton.addEventListener('click', () => this.signIn());
         this.signOutButton.addEventListener('click', () => this.signOut());
-        if(this.auth) this.toggleButtonsSign();
         
         this.auth = firebase.auth();
+        this.auth.onAuthStateChanged(() => {
+            this.toggleButtonsSign()
+        });
         this.database = firebase.database();
         this.storage = firebase.storage();
     }
@@ -17,7 +19,6 @@ class MyChat {
         this.auth.signInWithPopup(provider)
                 .then( () => {
                     console.log('signIn !!!');
-                    this.toggleButtonsSign();
                 })
                 .catch( err => console.error(err) );
     }
@@ -26,7 +27,6 @@ class MyChat {
         this.auth.signOut()
                 .then( () => {
                     console.log('signOut !!!');
-                    this.toggleButtonsSign();
                 })
                 .catch( err => console.error(err) );
         
@@ -39,8 +39,8 @@ class MyChat {
         this.nameUser = document.getElementById('nameUser');
         if(this.auth.currentUser) {
             console.log(this.auth.currentUser);
-            this.nameUser.innerHTML = `<span>${this.auth.currentUser.displayName}</span>
-                <img src="${this.auth.currentUser.photoURL}" alt="photo">`;
+            this.nameUser.innerHTML = `<img src="${this.auth.currentUser.photoURL}" alt="photo">
+            <span>${this.auth.currentUser.displayName}</span>`;
         }
         else {
             console.log(this.auth.currentUser);
