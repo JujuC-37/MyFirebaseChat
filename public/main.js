@@ -11,7 +11,11 @@ class MyChat {
         
         this.auth = firebase.auth();
         this.auth.onAuthStateChanged(() => {
-            this.toggleButtonsSign()
+            this.toggleButtonsSign();
+
+            if(this.auth.currentUser) {
+                this.loadMessage();
+            }
         });
         this.database = firebase.database();
         this.storage = firebase.storage();
@@ -53,12 +57,11 @@ class MyChat {
     }
 
     toggleButtonsSign() {
-        this.signInButton.classList.toggle("hidden");
-        this.signOutButton.classList.toggle("hidden");
+        this.signInButton.classList.toggle("hidden", this.auth.currentUser ? true : false);
+        this.signOutButton.classList.toggle("hidden", this.auth.currentUser ? false : true);
         
         this.nameUser = document.getElementById('nameUser');
         if(this.auth.currentUser) {
-            console.log(this.auth.currentUser);
             this.nameUser.innerHTML = `<img src="${this.auth.currentUser.photoURL}" alt="photo">
             <span>${this.auth.currentUser.displayName}</span>`;
         }
@@ -66,6 +69,19 @@ class MyChat {
             console.log(this.auth.currentUser);
             this.nameUser.innerHTML = '';
         }
+    }
+
+    loadMessage(){
+        this.messagesRef = this.database.ref('messages'); // Reference to the /messages/ database path.
+        this.messagesRef.off(); // Make sure we remove all previous listeners.
+
+        let setMessage = (data) => {
+            let message = data.val();
+            this.addMessageInDOM(message.content);
+        }
+
+        this.messagesRef.limitToLast(4).on('child_added', setMessage);
+        this.messagesRef.limitToLast(4).on('child_changed', setMessage);        
     }
 
     addMessageInDOM(message){
@@ -78,6 +94,13 @@ class MyChat {
     }
 
     addMessageInDB(message) {
+        this.messagesRef = this.database.ref('messages'); // Reference to the /messages/ database path.
+        this.messagesRef.off(); // Make sure we remove all previous listeners.
+
+        this.messagesRef.push({
+            user: this.auth.currentUser.displayName,
+            content: message,
+        })
         console.log('in database: ', message);
     }
 }

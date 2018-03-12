@@ -50,6 +50,7 @@ body {
 
 #messagesList {
     flex: 2;
+    overflow: scroll;
 }
 
 .messageContainer {
